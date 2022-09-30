@@ -14,7 +14,6 @@ $blockquote-border: $dove-grey !default;
 body {
   margin: 0;
   padding: 0;
-  // background: $body-background url("../assets/bkg.png") 0 0;
   background-color: #141d2b;
   color: $body-foreground;
   font-size: 14px;
@@ -69,12 +68,12 @@ header {
 }
 
 header h1 {
-  font-size: 32px;
+  font-size: 26px;
   line-height: 1.5;
   margin: 0;
   text-align: center;
   font-weight: bold;
-  font-family: neue-haas-unica,sans-serif;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   color: #9fef00;//$header;
   letter-spacing: -1px;
   -webkit-font-smoothing: antialiased;
@@ -232,10 +231,6 @@ p {
   float: left;
 }
 
-.btn-github .icon {
-  opacity: 0.6;
-  background: url("../images/blacktocat.png") 0 0 no-repeat;
-}
 
 /* Links
    a, a:hover, a:visited
@@ -243,9 +238,8 @@ p {
 
 a {
   color: #9fef00;
-  font-size: 24px;
+  font-size: 16px;
   font-family: neue-haas-unica,sans-serif;
-  font-weight: 600;
   text-decoration: none;
   // text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
@@ -285,4 +279,9 @@ a .pagination{
 
 #wrapper {
   min-height: calc(100vh - 100px);
+}
+
+.post a{ 
+  font-size: 24px !important;
+  font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 }
