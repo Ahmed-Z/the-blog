@@ -14,7 +14,7 @@ The final result looks like the image below: the `/start` command pops up the se
 This bot is also capable of taking screenshots, paste the clipboard, list and kill running processes, navigate file system as well execute shell commands.
 
 <p align="center">
-  <img src="../assets/telegram-final-product.png" style="height:600px;">
+  <img src="https://github.com/Ahmed-Z/the-blog/raw/gh-pages/assets/telegram-final-product.png" style="height:600px;">
 </p>
 
 ### [](#header-3)Step 1: Get the API token
@@ -23,7 +23,7 @@ The first step is to create a bot using BotFather of telegram. This is necessary
 The process is pretty simple: search for BotFather and run the following commands: `/start` , `/newbot` choose a name for your bot and finally you will get the required token. Note that the chat id and the token are separated by `:` .
 
 <p align="center">
-  <img src="../assets/telegram-access-token.jpg" style="height:400px;">
+  <img src="https://github.com/Ahmed-Z/the-blog/raw/gh-pages/assets/telegram-access-token.jpg" style="height:400px;">
 </p>
 
 ### [](#header-3)Step2: Get coding
