@@ -202,21 +202,29 @@ if input_text == "sleep":
 ```
 
 We define the `send_response()` method to further process the data sent to the user. The limit of characters we can send with send_message method is 4096 characters, so we need to split larger amount of data into chunks and send them separately.
-
+We also limit the use of this bot to only one account username (your account) for security reasons. So you need to change `YOUR_USERNAME` to your account username.
 ```python
 def send_response(self, update, context):
         user_message = update.message.text
-        user_message = user_message.encode(
-            'ascii', 'ignore').decode('ascii').strip(' ')
-        user_message = user_message[0].lower() + user_message[1:]
-        response = self.handle_message(update, user_message)
-        if response:
-            if (len(response) > 4096):
-                for i in range(0, len(response), 4096):
+        # Please modify this
+        if update.message.chat["username"] != "YOUR_USERNAME":
+            print("[!] " + update.message.chat["username"] +
+                  ' tried to use this bot')
+            context.bot.send_message(
+                chat_id=self.CHAT_ID, text="Nothing to see here.")
+        else:
+            user_message = user_message.encode(
+                'ascii', 'ignore').decode('ascii').strip(' ')
+            user_message = user_message[0].lower() + user_message[1:]
+            response = self.handle_message(update, user_message)
+            if response:
+                if (len(response) > 4096):
+                    for i in range(0, len(response), 4096):
+                        context.bot.send_message(
+                            chat_id=self.CHAT_ID, text=response[i:4096+i])
+                else:
                     context.bot.send_message(
-                        chat_id=self.CHAT_ID, text=response[i:4096+i])
-            else:
-                context.bot.send_message(chat_id=self.CHAT_ID, text=response)
+                        chat_id=self.CHAT_ID, text=response)
 ```
 
 It is always nice to have readable error when something goes wrong.
