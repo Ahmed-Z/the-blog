@@ -29,3 +29,5 @@ plugins:
 # Custom variables
 owner: "Ahmed"
 year: "2022"
+url: Ahmed-Z.github.io
+baseurl: /the-blog
