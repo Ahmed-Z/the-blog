@@ -1,5 +1,5 @@
 ---
-title: Control your Windows computer using Telegram
+title: Remote control your Windows computer using Telegram
 published: true
 ---
 
