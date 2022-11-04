@@ -5,7 +5,7 @@ published: true
 
 To gain control over a target system, a reverse shell is an integral part of a hacking/pentesting process, it enables the attacker to execute system commands on the target machine. In this article we are going to code a reverse TCP shell in python. We will make sure our shell will be as robust as possible, reconnecting to the attacker each time the connection is lost and we will implement XOR encryption to encrypt the traffic sent between the two machines.
 <p align="center">
-  <img src="../assets/reverse-tcp-final-product.jpg" style="width:1000px;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/reverse-tcp-final-product.jpg" style="width:1000px;"><br>
 </p>
 
 ### [](#header-3) What is a shell ?
@@ -15,14 +15,14 @@ A shell provides an interface between the user and the system kernel. It is a pr
  In **bind shell**, an attacker launches a service (the listener) on the target computer, to which the attacker can connect. To launch a bind shell, the attacker must have the IP address of the victim to access the target computer and must find an open port on the target machine and then tries to bind his shell to that port. This type of shells is not common, since modern firewalls don’t allow outsiders to connect to open ports.
 
 <p align="center">
-  <img src="../assets/bind-shell.jpg" style="width:600px;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/bind-shell.jpg" style="width:600px;"><br>
   <em>Bind shell</em>
 </p>
 
 In the **reverse shell**, the attacker has the listener running on his machine and the target connects to the attacker with a shell. The attacker must open his own port so that the victim can connect to and doesn’t need to know the IP address of the victim. Reverse Shell can bypass the firewall issues, thus they are the most used during a cyberattack.
 
 <p align="center">
-  <img src="../assets/reverse-shell.jpg" style="width:600px;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/reverse-shell.jpg" style="width:600px;"><br>
   <em>Reverse shell</em>
 </p>
 
@@ -33,7 +33,7 @@ A TCP connection does not encrypt traffic by default, it sends data between send
 XOR Encryption is an encryption method used to encrypt data and is hard to crack by brute-force method. XOR denote the exclusive disjunction (XOR) operation. A string of text can be encrypted applying the bitwise XOR operator to every character using a given key. One of the cool things about XOR encryption is that when you apply it twice, you get back the original string. An example (from Wikipedia) of the XOR encryption in the image below.
 
 <p align="center">
-  <img src="../assets/XOR-example.PNG" style="width:700px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/XOR-example.PNG" style="width:700px;"><br>
   <em>Source: wikipedia</em>
 </p>
 
