@@ -7,7 +7,7 @@ published: true
 MAC stands for Media Access Control, and also known as Physical address, hardware address which uniquely identifies each device on a given network. If a LAN network has two or more devices with the same MAC address, that network will not work.
 
 <p align="center">
-  <img src="../assets/architecture-of-mac-1.webp" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/architecture-of-mac-1.webp" style="width:600px;"><br>
   <em>Architecture of MAC</em>
 </p>
 
@@ -23,26 +23,26 @@ The final product we aim to code is a python script that allow us to show the cu
 
 First let's check our current MAC address using `ifconfig` command in linux.
 <p align="center">
-  <img src="../assets/ini-ifconfig.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/ini-ifconfig.PNG" style="width:600px;"><br>
 </p>
 We can acheive the same result using our script but in a much cleaner way.
 <p align="center">
-  <img src="../assets/mac-show.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/mac-show.PNG" style="width:600px;"><br>
 </p>
 Now let's set a random MAC address.
 <p align="center">
-  <img src="../assets/random-change.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/random-change.PNG" style="width:600px;"><br>
 </p>
 We can check if we really changed the MAC address of `enp0s3` interface using the command `ifconfig`.
 <p align="center">
-  <img src="../assets/ifconfig-random.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/ifconfig-random.PNG" style="width:600px;"><br>
 </p>
 We can also set a MAC address of our choosing. This can be usefull in some situations. 
 <p align="center">
-  <img src="../assets/fake-mac.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/fake-mac.PNG" style="width:600px;"><br>
 </p>
 <p align="center">
-  <img src="../assets/ifconfig-fake.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/ifconfig-fake.PNG" style="width:600px;"><br>
 </p>
 
 ### [](#header-3) Let's code
@@ -70,7 +70,7 @@ Now we define the function that will generate a random MAC address.
 The random MAC address must respect the **LAA** (Locally Administered Address) format. A locally administered address is assigned to a device by a network administrator, overriding the burned-in address.
 
 <p align="center">
-  <img src="../assets/LAA-format.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/LAA-format.PNG" style="width:600px;"><br>
   <em>Ranges of group and locally administered addresses (Wikipedia)</em>
 </p>
 
