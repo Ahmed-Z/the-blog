@@ -14,18 +14,18 @@ MAC stands for Media Access Control, and also known as Physical address, hardwar
 ### [](#header-3) Reasons to change (Spoof) the MAC address
 <ul>
 <li><p>Some of the free wifi connection filter the MAC addresses to enable only devices that are on the whitelist to connect to the network. You can impersonate one of the allowed MAC addresses to access the network.</p></li>
-<li><p>If you are caught doing some suspecious stuff in a network, your MAC address might be banned, or even to identify you.</p></li>
+<li><p>If you are caught doing some suspicious stuff in a network, your MAC address might be banned, or even to identify you.</p></li>
 <li><p>MAC spoofing is essential in MITM (Man In The Middle) attack to redirect network traffic.</p></li>
 </ul>
 
 ### [](#header-3) Final product
-The final product we aim to code is a python script that allow us to show the current MAC address provided a network interface, change it to some random MAC or change it to a MAC of our choosing.
+The final product, we aim to code is a python script that allows us to show the current MAC address provided a network interface, change it to some random MAC or change it to a MAC of our choosing.
 
-First let's check our current MAC address using `ifconfig` command in linux.
+First, let's check our current MAC address using `ifconfig` command in Linux.
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/ini-ifconfig.PNG" style="width:600px;"><br>
 </p>
-We can acheive the same result using our script but in a much cleaner way.
+We can achieve the same result using our script, but in a much cleaner way.
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/mac-show.PNG" style="width:600px;"><br>
 </p>
@@ -37,7 +37,7 @@ We can check if we really changed the MAC address of `enp0s3` interface using th
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/ifconfig-random.PNG" style="width:600px;"><br>
 </p>
-We can also set a MAC address of our choosing. This can be usefull in some situations. 
+We can also set a MAC address of our choosing. This can be useful in some situations. 
 <p align="center">
   <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/fake-mac.PNG" style="width:600px;"><br>
 </p>
@@ -79,7 +79,7 @@ def generate_random_mac():
     char = "abcdef" + string.digits
     return random.choice(char) + random.choice("26ae") + ":" + "".join(random.choice(char) + random.choice(char) + ":"  for _ in range(5))[:-1]
 ```
-`getHwAddr()` function return the MAC address provided an interface name.
+`getHwAddr()` function returns the MAC address provided an interface name.
 ```python
 def getHwAddr(ifname):
     info = check_interface(ifname)
@@ -139,6 +139,6 @@ if __name__ == "__main__":
 ```
 
 ### [](#header-3) Conclusion
-Understanding the MAC address and its importance to uniquely identify devices on a network is fundamental knowledge for every hacker/pentester. The ARP protocol is used to associate a logical address with a physical or MAC address. In an upcoming article, we will be conducting MITM attack by spoofing the ARP protocol and we will encounter MAC addresses again.<br>
+Understanding the MAC address and its importance to uniquely identify devices on a network is fundamental knowledge for every hacker/pentester. The ARP protocol is used to associate a logical address with a physical or MAC address. In an upcoming article, we will be conducting a MITM attack by spoofing the ARP protocol and we will encounter MAC addresses again.<br>
 Full code in github [here](https://github.com/Ahmed-Z/mac-changer).<br>
 HAPPY HACKING.
