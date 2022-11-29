@@ -10,7 +10,7 @@ There several ways to scan a network, for example, a technique like **ping sweep
 ARP stands for address resolution protocol. This protocol is used to find the MAC address of the device corresponding to its IP address. This protocol aims to create communication between two devices on a local area network (Ethernet) by providing the other device's MAC address. To establish communication between two devices, the source device needs to generate the ARP request message. 
 
 <p align="center">
-  <img src="../assets/arp-protocol.png" style="width:600px;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/arp-protocol.png" style="width:600px;"><br>
   <em>ARP protocol</em>
 </p>
 When a new computer joins a local area network (LAN), it will receive a unique IP address to use for identification and communication. <br>
@@ -25,7 +25,7 @@ Scapy mainly does two things: sending packets and receiving answers. You define 
 The python script we are going to code is pretty simple to write yet it is a good introduction to scapy as we will use it often in the series **Pwn The Network** articles.<br> We use our script as follows: `python3 arp-scanner.py --network <net_addr>/<subnet_prefix>`
 
 <p align="center">
-  <img src="../assets/arp-scan.png" style="width:600px;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/arp-scan.PNG" style="width:600px;"><br>
   <em>ARP protocol</em>
 </p>
 
