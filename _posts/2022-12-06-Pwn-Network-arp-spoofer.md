@@ -14,12 +14,12 @@ One way that attackers can perform an MITM attack is through a technique called 
 
 Before we execute the ARP spoof attack, let's check our attacker machine machine and target machine ip addresses.
 <p align="center">
-  <img src="../assets/arp-spoof-ip-attacker.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-spoof-ip-attacker.PNG" style="width:600px;"><br>
   <em>Attacker ip address</em>
 </p>
 
 <p align="center">
-  <img src="../assets/arp-spoof-ip-target.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-spoof-ip-target.PNG" style="width:600px;"><br>
   <em>Target ip address</em>
 </p>
 
@@ -30,12 +30,12 @@ Gateway ip address: <b>192.168.56.100</b><br>
 Now let's have a look at each machine ARP table and note what MAC address is mapped to what ip address.
 
 <p align="center">
-  <img src="../assets/arp-table-attacker-before-attack.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-table-attacker-before-attack.PNG" style="width:600px;"><br>
   <em>Attacker ARP table before the attack</em>
 </p>
 
 <p align="center">
-  <img src="../assets/arp-table-target-before-attack.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-table-target-before-attack.PNG" style="width:600px;"><br>
   <em>Target ARP table before the attack</em>
 </p>
 
@@ -48,14 +48,14 @@ Now let's execute the attack using our tool by executing the following command.
 `python arp-spoof.py -t <target_ip_address> -g <gateway_ip_address>`
 
 <p align="center">
-  <img src="../assets/arp-spoofing.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-spoofing.PNG" style="width:600px;"><br>
   <em>Executing the ARP spoof attack</em>
 </p>
 
 While executing the attack, let's us check the ARP table of the target has changed.
 
 <p align="center">
-  <img src="../assets/arp-table-target-after-attack.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-table-target-after-attack.PNG" style="width:600px;"><br>
   <em>Target ARP table During the attack</em>
 </p>
 
@@ -63,14 +63,14 @@ While executing the attack, let's us check the ARP table of the target has chang
 To demonstrate the attack, let's ping the gateway using the target machine.
 
 <p align="center">
-  <img src="../assets/ping-gateway.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/ping-gateway.PNG" style="width:600px;"><br>
   <em>Pinging the gateway</em>
 </p>
 
 In the attacker machine, let's monitor the traffic using wireshark. 
 
 <p align="center">
-  <img src="../assets/arp-spoof-wireshark.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/arp-spoof-wireshark.PNG" style="width:600px;"><br>
   <em>Wireshark traffic capture</em>
 </p>
 As you can see in the figure above, the two ping requests are passing through the attacker machine (in both ways: from target to gateway and from gateway to target).<br>
