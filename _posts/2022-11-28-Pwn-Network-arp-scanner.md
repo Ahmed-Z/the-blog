@@ -35,43 +35,41 @@ To install scapy, use `pip install scapy`
 import scapy.all as scapy
 import argparse
 ```
-In the `scan()` function, we construct the ARP request layer by layer. First, we define the ARP layer and we provide the network address to scan (`pdst=ip`).<br>
-Next we add an Ether layer with `dst='ff:ff:ff:ff:ff:ff'`, this layer is needed to broadcast our request to the entire network ("ff:ff:ff:ff:ff:ff" is the MAC address used for broadcast). We concatenate the two layers using `/` character. <br>Finally, we send the request using `srp` method that will return the received. 
+The `scan` function is defined to take in the IP address of the network as an argument and return a list of answered ARP (Address Resolution Protocol) requests. An ARP request is a packet that is broadcasted to all devices on a network to find their MAC (Media Access Control) addresses. The function creates an ARP request packet and a broadcast packet, combines them, and sends them to the specified network using the `scapy.srp` function. The function then returns the list of answered requests.
 
 ```python
+#define the function to scan the network
 def scan(ip):
-    arp_request = scapy.ARP(pdst=ip)
-    broadcast = scapy.Ether(dst='ff:ff:ff:ff:ff:ff')
-    arp_request_broadcast = broadcast/arp_request
-    answered_list= scapy.srp(arp_request_broadcast,timeout=1,verbose=False)[0]
-    return answered_list
+    arp_request = scapy.ARP(pdst=ip) #create an ARP request packet
+    broadcast = scapy.Ether(dst='ff:ff:ff:ff:ff:ff') #create a broadcast packet
+    arp_request_broadcast = broadcast/arp_request #combine the ARP request and broadcast packet
+    answered_list= scapy.srp(arp_request_broadcast,timeout=1,verbose=False)[0] #send the packet and store the response in a list
+    return answered_list #return the response
 ```
-The next step is to identify the MAC vendor of each device discovered. This can be achieved by comparing the first 3 octets of the MAC address of each device to an already existing database (The first 3 octets in a MAC address represent Organizationally Unique Identifier). In our case we can simply use a text file containing a large number of identifiers and their corresponding vendor.
+The `get_mac_vendor` function is defined to take in the MAC address of a device and return its vendor. The function first formats the MAC address by converting it to upper case and removing the colons. It then opens the `mac-vendor.txt` file and searches for the MAC address in each line of the file. If the MAC address is found, the function returns the vendor name from the line. If the MAC address is not found, the function returns 'Unknown'.
 
 ```python
+#define the function to get the vendor of the given mac address
 def get_mac_vendor(mac):
-    mac = mac.upper().replace(':','')[0:6]
-    with open("mac-vendor.txt","r") as f:
-        for line in f :
-            if mac in line:
-                return line[7:]
-    return 'Unknown'
+    mac = mac.upper().replace(':','')[0:6] #convert the mac address to upper case, remove the colons and get the first 6 characters
+    with open("mac-vendor.txt","r") as f: #open the 'mac-vendor.txt' file in read mode
+        for line in f : #iterate through the lines in the file
+            if mac in line: #if the mac address is in the line
+                return line[7:] #return the vendor name from the line
+    return 'Unknown' #if the mac address is not found in the file, return 'Unknown'
 ```
-
-Finally, we put the two functions together to nicely output the ip address of each connected device with its corresponding MAC address and vendor.
+The `main` function is defined as the entry point of the script. It creates a new `ArgumentParser` object and adds a required command line argument `network` of type string. The function then parses the command line arguments, scans the network using the `scan` function, and iterates through the list of hosts returned by the `scan` function. For each host, the function gets the vendor using the `get_mac_vendor` function and prints the IP address, MAC address and vendor of the host.
 
 ```python
+#define the main function
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-n','--network', type=str, required=True)
-    args = parser.parse_args()
-    hosts = scan(args.network)
-    for host in hosts:
-        mac_vendor = get_mac_vendor(host[1].src).strip()
-        print(host[0].pdst + 2*'\t' + host[1].src + 2*'\t' + mac_vendor)
-
-if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser() #create a new ArgumentParser object
+    parser.add_argument('-n','--network', type=str, required=True) #add a new argument 'network' which is required and is a string
+    args = parser.parse_args() #parse the command line arguments
+    hosts = scan(args.network) #scan the network and get the response
+    for host in hosts: #iterate through the hosts in the response
+        mac_vendor = get_mac_vendor(host[1].src).strip() #get the vendor of the host
+        print(host[0].pdst + 2*'\t' + host[1].src + 2*'\t' + mac_vendor) #print the ip address, mac address and vendor of the host
 ```
 ### [](#header-3) Conclusion
 A good understanding of ARP is necessary of every hacker/penetration tester interested in network hacking. It is used to conduct MITM attacks to intercept network traffic and perform even more sophisticated attacks.<br>
