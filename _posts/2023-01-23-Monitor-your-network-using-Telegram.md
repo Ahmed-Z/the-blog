@@ -6,7 +6,7 @@ published: true
 This script uses Telegram to notify you about the devices connected to your network. When you run the script, it starts a Telegram bot that you can interact with. The bot allows you to start the network scan and get a list of all currently connected devices on your network. You can receive notifications about new devices connected or disconnected on your network through Telegram, that way you can keep track of all the devices that are connected to your network wherever you are. The script makes it easy to monitor your network, you can receive notifications on your phone or computer and take actions if needed. 
 
 <p align="center">
-  <img src="../assets/wifi-telegram-bot-final-product.jpg" style="height:600px;">
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/wifi-telegram-bot-final-product.jpg" style="height:600px;">
 </p>
 
 ### [](#header-3) Create your config file
