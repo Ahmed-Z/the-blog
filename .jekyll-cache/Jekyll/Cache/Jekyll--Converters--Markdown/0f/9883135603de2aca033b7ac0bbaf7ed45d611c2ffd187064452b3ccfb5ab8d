@@ -1,5 +1,0 @@
-I"þ<p>If you work in an office, you are probably told to always lock your computer before you go AFK as a measure of security. In my case, my colleagues will not hesitate to prank whoever forgets his screen unlocked as a punishment.
-I am a very caring person, so things like these should not happen to me. I must find a way to lock my screen from a distance and preferably via my smartphone.<br />
-To do that, we are going to use python to build our own Telegram bot to control our Windows PC.
-<a href="https://github.com/python-telegram-bot/python-telegram-bot">python-telegram-bot</a> is an awesome interface for the Telegram Bot API that enables us to do so much cool stuff using <code class="language-plaintext highlighter-rouge">telegram.ext</code> submodule.</p>
-:ET
