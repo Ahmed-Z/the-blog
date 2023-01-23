@@ -19,6 +19,28 @@ In the folder of the project you need to create the `conf.json` file that will c
     "INTERVAL": SCAN_NETWORK_INTERVAL  //int: 60
 }
 ```
+### [](#header-3) Download and install Npcap
+To be able to scan the network, the scapy library needs a dependency to be installed called Npcap
+
+Installing Npcap on Linux:
+
+1. Download the Npcap package for Linux from the Npcap website.
+2. Open a terminal and navigate to the directory where the Npcap package is located.
+3. Use the command sudo dpkg -i npcap-version.deb to install the package, replacing "version" with the version number of the package you downloaded.
+4. Use the command sudo apt-get install -f to install any missing dependencies.
+5. Once the installation is complete, use the command sudo ldconfig to update the library cache.
+
+
+Installing Npcap on Windows:
+
+1. Download the Npcap installer for Windows from the Npcap website.
+2. Run the installer, and click on "Next" to begin the installation process.
+3. Select the "Npcap" and "WinPcap compatibility" options.
+4. Read and accept the license agreement.
+5. Choose the installation location, and click on "Next" to continue.
+6. Click on "Install" to begin the installation process.
+7. Once the installation is complete, click on "Finish" to close the installer.
+
 
 ### [](#header-3) Getting your API key and your chat ID
 Creating a Telegram bot using BotFather is a simple process. Here are the steps to create a Telegram bot using BotFather:
