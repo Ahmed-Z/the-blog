@@ -17,8 +17,8 @@ body {
   background-color: #141d2b;
   color: $body-foreground;
   font-size: 14px;
-  line-height: 20px!important;
-  font-family: neue-haas-unica,sans-serif;
+  line-height: 20px !important;
+  font-family: neue-haas-unica, sans-serif;
   font-weight: 400;
   color: #a4b1cd;
 
@@ -38,12 +38,17 @@ section {
   margin: 0 0 20px 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 20px;
 }
 
 li {
-  line-height: 1.4 ;
+  line-height: 1.4;
 }
 
 /* Header, <header>
@@ -74,17 +79,17 @@ header h1 {
   text-align: center;
   font-weight: bold;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
-  color: #9fef00;//$header;
+  color: #9fef00; //$header;
   letter-spacing: -1px;
   -webkit-font-smoothing: antialiased;
 }
 
 header h2 {
-  font-family: neue-haas-unica,sans-serif;
+  font-family: neue-haas-unica, sans-serif;
   font-size: 18px;
   font-weight: 300;
   color: #a4b1cd;
-  margin:20px;
+  margin: 20px;
   text-decoration: underline;
 }
 
@@ -95,11 +100,17 @@ header h2 {
   width: 100%;
   -webkit-font-smoothing: antialiased;
 }
+
 section img {
   max-width: 100%
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
   color: #9fef00;
@@ -163,7 +174,7 @@ pre {
 }
 
 code.highlighter-rouge {
-  background: rgba(0,0,0,0.9);
+  background: rgba(0, 0, 0, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.15);
   padding: 0px 3px;
   margin: 0px -3px;
@@ -192,13 +203,23 @@ hr {
   border-bottom: 1px dashed #9fef00;
   color: #9fef00;
 }
+
 p {
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 32px;
-  font-family: neue-haas-unica,sans-serif;
+  font-family: neue-haas-unica, sans-serif;
 }
+
+li {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+  font-family: neue-haas-unica, sans-serif;
+}
+
 /* Buttons
 */
 
@@ -239,38 +260,42 @@ p {
 a {
   color: #9fef00;
   font-size: 16px;
-  font-family: neue-haas-unica,sans-serif;
+  font-family: neue-haas-unica, sans-serif;
   text-decoration: none;
   // text-shadow: 0 0 5px rgba(104, 182, 255, 0.5);
 }
 
-a:active, a:focus {
+a:active,
+a:focus {
   outline: 0;
   border: none;
   -moz-outline-style: none
 }
 
-a .pagination{
+a .pagination {
   font-size: 15px;
 }
+
 /* Clearfix */
 
-.cf:before, .cf:after {
-  content:"";
-  display:table;
+.cf:before,
+.cf:after {
+  content: "";
+  display: table;
 }
 
 .cf:after {
-  clear:both;
+  clear: both;
 }
 
 .cf {
-  zoom:1;
+  zoom: 1;
 }
 
 /* Make footer stick to bottom */
 
-.pagination, footer {
+.pagination,
+footer {
   height: 50px;
   line-height: 50px;
   text-align: center;
@@ -281,7 +306,7 @@ a .pagination{
   min-height: calc(100vh - 100px);
 }
 
-.post a{ 
+.post a {
   font-size: 24px !important;
   font-family: Monaco, "Bitstream Vera Sans Mono", "Lucida Console", Terminal, monospace;
 }
