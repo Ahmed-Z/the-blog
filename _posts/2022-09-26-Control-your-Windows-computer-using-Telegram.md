@@ -2,7 +2,7 @@
 title: Remote control your Windows computer using Telegram
 published: true
 ---
-
+<i> Updated on 23/01/2023</i><br>
 If you work in an office, you are probably told to always lock your computer before you go AFK as a measure of security. In my case, my colleagues will not hesitate to prank whoever forgets his screen unlocked as a punishment.
 I am a very caring person, so things like these should not happen to me. I must find a way to lock my screen from a distance and preferably via my smartphone.<br>
 To do that, we are going to use python to build our own Telegram bot to control our Windows PC.
@@ -17,15 +17,26 @@ This bot is also capable of taking screenshots, paste the clipboard, list and ki
   <img src="https://github.com/Ahmed-Z/the-blog/raw/gh-pages/assets/telegram-final-product.png" style="height:600px;">
 </p>
 
-### [](#header-3)Step 1: Get the API token
+### [](#header-3)Step 1: Get the API token and the chat ID
 
-The first step is to create a bot using BotFather of telegram. This is necessary to get the access token and chat id that we will use later.
-The process is pretty simple: search for BotFather and run the following commands: `/start` , `/newbot` choose a name for your bot and finally you will get the required token. Note that the chat id and the token are separated by `:` .
+Creating a Telegram bot using BotFather is a simple process. Here are the steps to create a Telegram bot using BotFather:
+
+1. Open Telegram and search for @BotFather.
+2. Start a chat with BotFather by clicking on the search result.
+3. Send the command '/newbot' to BotFather to create a new bot.
+4. BotFather will ask you to choose a name for your bot. Pick a name that you like and send it to BotFather.
+5. BotFather will then ask you to choose a username for your bot. The username must end in "bot" (e.g., mynewbot) and should be unique.
+6. Once you have chosen a username, BotFather will give you a token. This token is used to authenticate your bot with the Telegram servers. Keep this token safe, as you will need it later.
 
 <p align="center">
   <img src="https://github.com/Ahmed-Z/the-blog/raw/gh-pages/assets/telegram-access-token.jpg" style="height:400px;">
 </p>
 
+In order to get your Telegram chat ID, you will need to do the following:
+
+1. Start a chat with the bot @RawDataBot.
+2. Send the command /start to the bot.
+3. The bot should respond with your Telegram informations. Grab the chat ID that you need.
 ### [](#header-3)Step2: Get coding
 
 Now we get to the fun part. First, we need to import all the necessary libraries
