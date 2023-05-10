@@ -10,7 +10,7 @@ In today's digital age, ecommerce has become a vital part of our daily lives. Wi
 To solve this problem, we developed a search engine for ecommerce websites using semantic search. By leveraging the power of openai embeddings and pinecone vector database, we were able to create a search engine that understands the meaning behind the search queries, rather than just matching keywords. This approach not only provides more accurate search results but also improves the overall customer experience.
 
 <p align="center">
-  <img src="../assets/elmarchi.PNG" style="height:200px;">
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/elmarchi.PNG" style="height:200px;">
 </p>
 
 In this article, we will delve into the technical details of the project, including how we implemented the search engine and overcame technical challenges. We will also explore the business plan behind the project, discussing how it can benefit ecommerce websites and their customers, and potential revenue streams. Overall, our aim is to provide insight into the development of the search engine and its potential impact on the ecommerce industry.
@@ -20,14 +20,14 @@ In this article, we will delve into the technical details of the project, includ
 When we search for something on the internet, we usually type in a few words or phrases that describe what we're looking for. Traditionally, search engines have used these keywords to match them with web pages that contain the same or similar keywords. However, this approach has limitations, as it doesn't always provide accurate or relevant results.
 
 <p align="center">
-  <img src="../assets/oldsearch.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/oldsearch.PNG" style="width:600px;"><br>
   <em>natural language query in ecommerce website </em>
 </p>
 
 Enter semantic search, a newer approach to search that aims to understand the meaning behind the search query and provide more accurate results. Semantic search uses natural language processing (NLP) techniques to understand the context and intent of the search query, taking into account factors such as synonyms, related concepts, and even user intent. This approach allows the search engine to provide more accurate results that match the user's intent, rather than just the keywords they entered.
 
 <p align="center">
-  <img src="../assets/marchisearch.PNG" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/marchisearch.PNG" style="width:600px;"><br>
   <em>natural language query in ecommerce website </em>
 </p>
 
@@ -42,7 +42,7 @@ Overall, semantic search represents a significant improvement over traditional k
 To create our semantic search engine for ecommerce websites, we leveraged the power of openai embeddings and pinecone vector database. These two technologies allowed us to understand the meaning behind search queries and provide more accurate and relevant search results.
 
 <p align="center">
-  <img src="../assets/embedding.PNG" style="height:200px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/embedding.PNG" style="height:200px;"><br>
 <em>source: openai.com</em>
 </p>
 
@@ -51,7 +51,7 @@ OpenAI embeddings are a type of natural language processing technique that maps 
 In our project, we use a vector database to store the embeddings of each product description. A vector database is a type of database that specializes in storing and searching through high-dimensional vectors, such as the embeddings we created using the OpenAI API. Traditional databases are designed to store and retrieve data based on its attributes, such as product name or price. However, vector databases are optimized for finding the most similar vectors to a given query vector, which makes them ideal for semantic search applications. In our project, we use the Pinecone vector database, which is a cloud-based, real-time vector database that allows us to store and search through millions of vectors with sub-second latencies. By using Pinecone, we are able to quickly and accurately match user queries with the most similar product embeddings in our database, allowing us to provide highly relevant search results to our users.
 
 <p align="center">
-  <img src="../assets/semantic-search-with-pinecone.png" style="width:600px;"><br>
+  <img src="https://raw.githubusercontent.com/Ahmed-Z/the-blog/gh-pages/assets/semantic-search-with-pinecone.png" style="width:600px;"><br>
   <em>source: pinecone.io</em>
 </p>
 
