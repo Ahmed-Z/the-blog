@@ -54,12 +54,12 @@ With the expenditure data in hand, the next logical step is to present it in a c
 By leveraging Dash, I was able to design a dashboard that showcases various plots, providing valuable insights into OpenAI API expenditures. One compelling example is a plot illustrating the cost over time, grouped by model name. This visualization not only aids in understanding expenditure trends but also allows for a nuanced analysis of costs associated with different models.
 
 <p align="center">
-  <img src="../assets/tokens.PNG" style="width:100%;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/tokens.PNG?raw=true" style="width:100%;"><br>
   <em>Number and requests over time</em>
 </p>
 
 <p align="center">
-  <img src="../assets/expenditure.PNG" style="width:100%;"><br>
+  <img src="https://github.com/Ahmed-Z/the-blog/blob/gh-pages/assets/expenditure.PNG?raw=true" style="width:100%;"><br>
   <em>Cost over time grouped by model name</em>
 </p>
 
